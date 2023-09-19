@@ -1,0 +1,8 @@
+export const GREY1 = '#f2f2f2'
+export const GREY2 = '#535353'
+export const GREY3 = '#888888'
+export const GREY4 = 'rgba(136, 136, 136, 0.5)'
+export const GREY5 = '#999999'
+export const TEXT1 = '#000'
+export const LINK1 = '#017faf'
+export const LINK2 = '#0099d5'
