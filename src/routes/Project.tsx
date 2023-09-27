@@ -1,5 +1,4 @@
-import React,
-{
+import React, {
   type FunctionComponent,
   Suspense,
   useContext
