@@ -8,6 +8,7 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
     "preview": "vite preview",
+    "provision": "aws cloudformation deploy --template-file ./react-cors-spa-stack.yaml --stack-name kd-stack-2 --parameter-overrides BucketName=kd-bucket-2",
     "generate": "graphql-codegen"
   },
   "dependencies": {
