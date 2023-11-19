@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "build:dev": "tsc && vite build --mode development",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
     "preview": "vite preview",
     "provision": "aws cloudformation deploy --template-file ./react-cors-spa-stack.yaml --stack-name kd-stack-2 --parameter-overrides BucketName=kd-bucket-2",
@@ -36,8 +37,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "knight-moves": "^1.0.5",
-    "react-flip-move": "^3.0.4",
-    "react-flip-toolkit": "^7.0.13",
+    "react-flip-toolkit": "^7.1.0",
     "styled-components": "^5.2.3",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"

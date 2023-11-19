@@ -3,9 +3,10 @@ import { ApolloClient, InMemoryCache, ApolloProvider, type NormalizedCacheObject
 import ReactDOM from 'react-dom/client'
 import { App } from './App.tsx'
 import './index.css'
+import { PORTFOIO_API_URL } from './utils/constants/environment.ts'
 
 const apolloCLient = new ApolloClient<NormalizedCacheObject>({
-  uri: 'http://localhost:4000/',
+  uri: PORTFOIO_API_URL,
   cache: new InMemoryCache()
 })
 
