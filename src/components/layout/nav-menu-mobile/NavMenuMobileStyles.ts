@@ -26,7 +26,7 @@ export const NavMenuMobileStyles = css`
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 10px 0px;
+      padding: 5px 0px;
 
       .hamburger-line {
         background-color: ${TEXT1};

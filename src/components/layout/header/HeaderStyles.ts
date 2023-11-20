@@ -1,14 +1,9 @@
 import { css } from 'styled-components'
 import { XSMALL_MAX } from '../../../utils/constants/breakpoints'
-import {
-  SPACING_Y,
-  SPACING_Y_NUM
-} from '../../../utils/constants/spacings'
+import { SPACING_Y_NUM } from '../../../utils/constants/spacings'
 import { animationFadeIn, boxShadowDark } from '../../../utils/constants/styles'
 
 export const HeaderStyles = css`
-  margin-bottom: ${SPACING_Y};
-
   .fade-in {
     ${animationFadeIn}
   }
@@ -43,16 +38,6 @@ export const HeaderStyles = css`
     .header-wrapper {
       &.desktop-header {
         visibility: hidden;
-      }
-
-      .logo-wrapper {
-        .logo-link-wrapper {
-          width: 150px;
-        }
-      }
-
-      .nav-wrapper {
-        justify-content: center;
       }
     }
 

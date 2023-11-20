@@ -36,6 +36,7 @@ const grillerzWhite = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/grill
 const jamFactoryBlack = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/jam-factory/tr:w-720,ar-1-1/jamfactoryblack_MnvFdJtCY7.jpg'
 const jamFactoryBlackAndWhite = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/jam-factory/tr:w-720,ar-1-1/jamfactoryblackandwhite_Q09rWb8wn.jpg'
 const jamFactoryWhite = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/jam-factory/tr:w-720,ar-1-1/jamfactorywhite_FSzRXarCc.jpg'
+const kelldevDesignLogo = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/site/tr:w-720,ar-720-144/kelldevdesign_banner_logo_large_mGe3WlsXI.png'
 const kelleghanDesignLogo = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/site/tr:w-720,ar-720-288/kelleghanlogocompblack_fvMZ5QD2k.png'
 const knightMoves = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/knight-moves/tr:w-720,ar-1-1/knightmoves_L8c2IAVwf.png'
 const knightMovesMock = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/knight-moves/tr:w-720,ar-1-1/knightmovesmock_S03mdjcKr-.png'
@@ -107,6 +108,7 @@ export {
   jamFactoryBlack,
   jamFactoryBlackAndWhite,
   jamFactoryWhite,
+  kelldevDesignLogo,
   kelleghanDesignLogo,
   knightMoves,
   knightMovesMock,

@@ -1,7 +1,7 @@
 import { type FunctionComponent, type ReactElement, useContext } from 'react'
 import styled from 'styled-components'
 import { HeaderStyles } from './HeaderStyles'
-import { kelleghanDesignLogo } from '../../../utils/constants/imageLinksCdn'
+import { kelldevDesignLogo } from '../../../utils/constants/imageLinksCdn'
 import { deriveAspectRatioFromImageUrl } from '../../../utils/helpers'
 import { Image } from '../../common/image/Image'
 import { LinkDelayed } from '../../common/link-delayed/LinkDelayed'
@@ -16,11 +16,11 @@ const HeaderStyled = styled.div`${HeaderStyles}`
 
 export const Header: FunctionComponent = () => {
   const { projectImagesPreloaded } = useContext(PortfolioContext)
-  const aspectRatio = deriveAspectRatioFromImageUrl(kelleghanDesignLogo)
+  const aspectRatio = deriveAspectRatioFromImageUrl(kelldevDesignLogo)
 
   const renderHeaderLogo = (): ReactElement =>
     <div className='logo-wrapper'>
-      <div className={`${projectImagesPreloaded[kelleghanDesignLogo] ? 'fade-in' : ''} logo-link-wrapper`}>
+      <div className={`${projectImagesPreloaded[kelldevDesignLogo] ? 'fade-in' : ''} logo-link-wrapper`}>
         <LinkDelayed
           isBlock
           to='/'
@@ -28,7 +28,7 @@ export const Header: FunctionComponent = () => {
           <Image
             altText='Kelleghan Design homepage'
             aspectRatio={aspectRatio ?? undefined}
-            src={kelleghanDesignLogo}
+            src={kelldevDesignLogo}
           />
         </LinkDelayed>
       </div>

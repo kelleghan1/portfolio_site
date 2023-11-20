@@ -20,7 +20,7 @@ import {
   type ImageLoadCallbackType,
   type TrueMapType
 } from '../../types/sharedTypes'
-import { kelleghanDesignLogo } from '../../utils/constants/imageLinksCdn'
+import { kelldevDesignLogo } from '../../utils/constants/imageLinksCdn'
 import {
   preloadImagesSet,
   preloadImagesIndividual,
@@ -79,7 +79,7 @@ const PortfolioContextProvider: FunctionComponent<PortfolioContextProviderProps>
       const newPortfolioMap: PortfolioMapType = {}
       const currentPathName = location?.pathname
       const homeImagesToPreload = []
-      let individualImagesToPreload = [{ imageUrl: kelleghanDesignLogo }]
+      let individualImagesToPreload = [{ imageUrl: kelldevDesignLogo }]
 
       for (const { projectId, homeImage, ...rest } of portfolioItems) {
         if (projectId && homeImage) {
