@@ -9,7 +9,6 @@
     "build:dev": "tsc && vite build --mode development",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
     "preview": "vite preview",
-    "provision": "aws cloudformation deploy --template-file ./react-cors-spa-stack.yaml --stack-name kd-stack-2 --parameter-overrides BucketName=kd-bucket-2",
     "generate": "graphql-codegen",
     "aws:sync": "aws s3 sync dist/ s3://kelldev.design --delete",
     "aws:invalidate": "aws cloudfront create-invalidation --distribution-id E310RTA2TDL598 --paths '/*'",
