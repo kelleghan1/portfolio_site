@@ -2,7 +2,7 @@ import { type ApolloClient, type ApolloQueryResult, gql } from '@apollo/client'
 import { type Query } from '../types/generatedGQLTypes'
 
 export const getPortfolioItems = (graphQLClient: ApolloClient<unknown>) =>
-  async (): Promise<ApolloQueryResult<Query>> =>
+  async (): Promise<ApolloQueryResult<Pick<Query, 'portfolioItems'>>> =>
     await graphQLClient.query({
       query: gql`
         query Query {
