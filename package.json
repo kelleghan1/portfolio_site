@@ -6,22 +6,38 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "build:dev": "tsc && vite build --mode development",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
+    "preview": "vite preview",
+    "generate": "graphql-codegen",
+    "aws:sync": "aws s3 sync dist/ s3://kelldev.design --delete",
+    "aws:invalidate": "aws cloudfront create-invalidation --distribution-id E310RTA2TDL598 --paths '/*'",
+    "aws:deploy": "npm run aws:sync && npm run aws:invalidate"
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.16.0"
   },
   "devDependencies": {
+    "@apollo/client": "^3.6.9",
+    "@graphql-codegen/cli": "^5.0.0",
+    "@graphql-codegen/typescript": "^4.0.1",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
+    "@types/styled-components": "^5.1.9",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "@vitejs/plugin-react": "^4.0.3",
     "eslint": "^8.45.0",
+    "eslint-config-standard-with-typescript": "^39.0.0",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "knight-moves": "^1.0.5",
+    "react-flip-toolkit": "^7.1.0",
+    "styled-components": "^5.2.3",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
   }
