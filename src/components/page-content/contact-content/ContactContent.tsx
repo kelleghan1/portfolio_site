@@ -125,7 +125,7 @@ const ContactContent: FunctionComponent = () => {
               hasLinkStyling
               isExternal
               target='_blank'
-              to='https://github.com/kelleghan1/portfolio_2'
+              to='https://github.com/kelleghan1/portfolio_site'
             >
               View the code for this website on Github
             </LinkCustom>
