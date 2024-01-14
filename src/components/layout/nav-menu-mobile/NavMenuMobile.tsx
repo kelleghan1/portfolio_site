@@ -6,6 +6,7 @@ import {
   useRef,
   useState
 } from 'react'
+import { useOktaAuth } from '@okta/okta-react'
 import { Flipped, Flipper } from 'react-flip-toolkit'
 import styled from 'styled-components'
 import { NavMenuMobileStyles } from './NavMenuMobileStyles'
@@ -17,8 +18,13 @@ import { Spacer } from '../spacer/Spacer'
 const NavMenuMobileStyled = styled.div`${NavMenuMobileStyles}`
 
 export const NavMenuMobile: FunctionComponent = () => {
+  const { oktaAuth, authState } = useOktaAuth()
   const [ isNavOpen, setIsNavOpen ] = useState(false)
   const wrapperRef = useRef(null)
+
+  const handleLogoutClick = (): void => {
+    void oktaAuth.signOut()
+  }
 
   const closeMenu = useCallback(
     (): void => {
@@ -89,6 +95,18 @@ export const NavMenuMobile: FunctionComponent = () => {
             />
           </Spacer>
         </div>
+        {
+          authState?.isAuthenticated &&
+          <div className='nav-bar-item-wrapper'>
+            <Spacer {...spacerProps}>
+              <NavMenuItem
+                handleClick={handleLogoutClick}
+                text='Logout'
+                toUrl='#'
+              />
+            </Spacer>
+          </div>
+        }
       </>
     )
   }
