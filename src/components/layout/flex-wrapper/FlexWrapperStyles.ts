@@ -10,6 +10,7 @@ const renderBackgroundColor = ({ backgroundColor }: FlexWrapperStylesPropsType):
 
 export const FlexWrapperStyles = css<FlexWrapperStylesPropsType>`
   display: flex;
+  flex: 1;
 
   &.flex-column {
     flex-direction: column;

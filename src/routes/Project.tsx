@@ -5,7 +5,7 @@ import React, {
 } from 'react'
 import { Navigate, useParams } from 'react-router-dom'
 import { LoadingOverlay } from '../components/common/loading-overlay/LoadingOverlay'
-import { PortfolioContext } from '../components/context/PortfolioContextProvider'
+import { PortfolioContext } from '../components/wrappers/PortfolioContextProvider'
 
 const ProjectContent = React.lazy(async () => await import('../components/page-content/project-content/ProjectContent'))
 

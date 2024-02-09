@@ -4,7 +4,7 @@ import {
   animationFadeOut
 } from '../../../utils/constants/styles'
 
-export const RegisterContentStyles = css`
+export const AdminContentStyles = css`
   ${animationFadeIn}
 
   &.fade-out {

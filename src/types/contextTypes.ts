@@ -13,6 +13,7 @@ export type PortfolioMapType = Record<string, PortfolioItem>
 export interface PortfolioContextStateType {
   areHomeImagesLoaded: boolean
   isLoading: boolean
+  isLoggedIn: boolean | null
   isMobileNavOpen: boolean
   isNavigating: boolean
   portfolioMap: PortfolioMapType

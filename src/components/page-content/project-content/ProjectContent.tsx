@@ -7,12 +7,12 @@ import styled from 'styled-components'
 import { ProjectContentStyles } from './ProjectContentStyles'
 import { ProjectDescription } from '../../common/project-description/ProjectDescription'
 import { ProjectImage } from '../../common/project-image/ProjectImage'
-import { PortfolioContext } from '../../context/PortfolioContextProvider'
 import { Container } from '../../layout/container/Container'
 import { PageRow } from '../../layout/page-row/PageRow'
 import { Pure } from '../../layout/pure/Pure'
 import { PureUnit } from '../../layout/pure-unit/PureUnit'
 import { Spacer } from '../../layout/spacer/Spacer'
+import { PortfolioContext } from '../../wrappers/PortfolioContextProvider'
 
 const ProjectContentStyled = styled.div`${ProjectContentStyles}`
 
