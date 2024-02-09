@@ -58,15 +58,25 @@ export const NavMenu: FunctionComponent = () => {
         </div>
         {
           authState?.isAuthenticated &&
-          <div className='nav-bar-item-wrapper'>
-            <Spacer {...spacerProps}>
-              <NavMenuItem
-                handleClick={handleLogoutClick}
-                text='Logout'
-                toUrl='#'
-              />
-            </Spacer>
-          </div>
+          <>
+            <div className='nav-bar-item-wrapper'>
+              <Spacer {...spacerProps}>
+                <NavMenuItem
+                  text='Admin'
+                  toUrl='/admin'
+                />
+              </Spacer>
+            </div>
+            <div className='nav-bar-item-wrapper'>
+              <Spacer {...spacerProps}>
+                <NavMenuItem
+                  handleClick={handleLogoutClick}
+                  text='Logout'
+                  toUrl='#'
+                />
+              </Spacer>
+            </div>
+          </>
         }
       </nav>
     </NavMenuStyled>

@@ -17,7 +17,7 @@ export const FlexWrapper: FunctionComponent<FlexWrapperPropsType> = ({
   flexColumn,
   hasShadow
 }) => {
-  let className = flexColumn ? 'flex-column' : ''
+  let className = flexColumn ? 'flex-column flex-grow' : ''
 
   if (hasShadow) className += ' shadow'
 
