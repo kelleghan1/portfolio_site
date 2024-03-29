@@ -2,10 +2,10 @@ import { type FunctionComponent, useContext } from 'react'
 import { KnightMoves } from 'knight-moves'
 import styled from 'styled-components'
 import { KnightMovesDemoStyles } from './KnightMovesDemoStyles'
-import { PortfolioContext } from '../../context/PortfolioContextProvider'
 import { Container } from '../../layout/container/Container'
 import { PageRow } from '../../layout/page-row/PageRow'
 import { Spacer } from '../../layout/spacer/Spacer'
+import { PortfolioContext } from '../../wrappers/PortfolioContextProvider'
 
 const KnightMovesDemoStyled = styled.div`${KnightMovesDemoStyles}`
 

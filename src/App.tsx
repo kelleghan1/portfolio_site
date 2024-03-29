@@ -1,4 +1,5 @@
 import { type FunctionComponent } from 'react'
+import { LoginCallback } from '@okta/okta-react'
 import {
   createBrowserRouter,
   Outlet,
@@ -6,26 +7,33 @@ import {
 } from 'react-router-dom'
 import styled from 'styled-components'
 import { appStyles } from './AppStyles'
-import { PortfolioContextProvider } from './components/context/PortfolioContextProvider'
 import { Header } from './components/layout/header/Header'
+import KeyCommandProvider from './components/wrappers/KeyCommandProvider'
+import OktaProvider from './components/wrappers/OktaProvider'
+import { PortfolioContextProvider } from './components/wrappers/PortfolioContextProvider'
+import ProtectedRoute from './components/wrappers/ProtectedRoute'
+import { Admin } from './routes/Admin'
 import { Contact } from './routes/Contact'
 import { Home } from './routes/Home'
 import { Login } from './routes/Login'
 import { Project } from './routes/Project'
 import { ProjectDemo } from './routes/ProjectDemo'
-import { Register } from './routes/Register'
 
 const AppStyled = styled.div`${appStyles}`
 
 const router = createBrowserRouter([
   {
     element: (
-      <PortfolioContextProvider>
-        <AppStyled>
-          <Header />
-          <Outlet />
-        </AppStyled>
-      </PortfolioContextProvider>
+      <OktaProvider>
+        <PortfolioContextProvider>
+          <KeyCommandProvider>
+            <AppStyled>
+              <Header />
+              <Outlet />
+            </AppStyled>
+          </KeyCommandProvider>
+        </PortfolioContextProvider>
+      </OktaProvider>
     ),
     children: [
       {
@@ -55,8 +63,12 @@ const router = createBrowserRouter([
         element: <Login />
       },
       {
-        path: '/register',
-        element: <Register />
+        path: '/admin',
+        element: <ProtectedRoute><Admin /></ProtectedRoute>
+      },
+      {
+        path: '/login/callback',
+        element: <LoginCallback />
       }
     ]
   }
