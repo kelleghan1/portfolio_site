@@ -8,6 +8,7 @@ import {
 import styled from 'styled-components'
 import { appStyles } from './AppStyles'
 import { Header } from './components/layout/header/Header'
+import KeyCommandProvider from './components/wrappers/KeyCommandProvider'
 import OktaProvider from './components/wrappers/OktaProvider'
 import { PortfolioContextProvider } from './components/wrappers/PortfolioContextProvider'
 import ProtectedRoute from './components/wrappers/ProtectedRoute'
@@ -25,10 +26,12 @@ const router = createBrowserRouter([
     element: (
       <OktaProvider>
         <PortfolioContextProvider>
-          <AppStyled>
-            <Header />
-            <Outlet />
-          </AppStyled>
+          <KeyCommandProvider>
+            <AppStyled>
+              <Header />
+              <Outlet />
+            </AppStyled>
+          </KeyCommandProvider>
         </PortfolioContextProvider>
       </OktaProvider>
     ),

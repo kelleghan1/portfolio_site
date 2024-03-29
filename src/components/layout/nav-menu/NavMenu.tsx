@@ -1,14 +1,16 @@
-import { type FunctionComponent } from 'react'
+import { useContext, type FunctionComponent } from 'react'
 import { useOktaAuth } from '@okta/okta-react'
 import styled from 'styled-components'
 import { NavMenuStyles } from './NavMenuStyles'
+import { PortfolioContext } from '../../wrappers/PortfolioContextProvider'
 import { NavMenuItem } from '../nav-menu-item/NavMenuItem'
 import { Spacer } from '../spacer/Spacer'
 
 const NavMenuStyled = styled.div`${NavMenuStyles}`
 
 export const NavMenu: FunctionComponent = () => {
-  const { oktaAuth, authState } = useOktaAuth()
+  const { oktaAuth } = useOktaAuth()
+  const { isLoggedIn } = useContext(PortfolioContext)
 
   const handleLogoutClick = (): void => {
     void oktaAuth.signOut()
@@ -57,7 +59,7 @@ export const NavMenu: FunctionComponent = () => {
           </Spacer>
         </div>
         {
-          authState?.isAuthenticated &&
+          isLoggedIn &&
           <>
             <div className='nav-bar-item-wrapper'>
               <Spacer {...spacerProps}>
