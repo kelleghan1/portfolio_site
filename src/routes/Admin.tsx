@@ -1,9 +1,9 @@
 import React, { type FunctionComponent, Suspense } from 'react'
 import { LoadingOverlay } from '../components/common/loading-overlay/LoadingOverlay'
 
-const RegisterContent = React.lazy(async () => await import('../components/page-content/register-content/RegisterContent'))
+const AdminContent = React.lazy(async () => await import('../components/page-content/admin/AdminContent'))
 
-export const Register: FunctionComponent = () =>
+export const Admin: FunctionComponent = () =>
   <Suspense fallback={<LoadingOverlay />}>
-    <RegisterContent />
+    <AdminContent />
   </Suspense>

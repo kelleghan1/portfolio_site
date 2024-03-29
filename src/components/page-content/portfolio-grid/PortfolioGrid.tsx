@@ -14,10 +14,10 @@ import styled from 'styled-components'
 import { PortfolioGridStyles } from './PortfolioGridStyles'
 import { LoadingOverlay } from '../../common/loading-overlay/LoadingOverlay'
 import { PortfolioGridItem } from '../../common/portfolio-grid-item/PortfolioGridItem'
-import { PortfolioContext } from '../../context/PortfolioContextProvider'
 import { Container } from '../../layout/container/Container'
 import { PageRow } from '../../layout/page-row/PageRow'
 import { Spacer } from '../../layout/spacer/Spacer'
+import { PortfolioContext } from '../../wrappers/PortfolioContextProvider'
 
 const PortfolioGridStyled = styled.div`${PortfolioGridStyles}`
 

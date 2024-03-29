@@ -9,7 +9,7 @@ import {
   useLocation
 } from 'react-router-dom'
 import { type PortfolioContextValueType } from '../../../types/contextTypes'
-import { PortfolioContext } from '../../context/PortfolioContextProvider'
+import { PortfolioContext } from '../../wrappers/PortfolioContextProvider'
 import { LinkCustom } from '../link-custom/LinkCustom'
 
 interface LinkDelayedPropsType {
@@ -38,7 +38,11 @@ export const LinkDelayed: FunctionComponent<LinkDelayedPropsType> = ({
   const location = useLocation()
 
   const handleLinkClick: ReactEventHandler = event => {
-    if (handleClick) handleClick()
+    if (handleClick) {
+      handleClick()
+
+      return
+    }
 
     const currentPathName = location?.pathname
 

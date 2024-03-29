@@ -3,12 +3,13 @@ import React,
   type ReactElement,
   useEffect,
   useState,
-  type FunctionComponent,
-  useCallback
+  type FunctionComponent
 } from 'react'
-import { useApolloClient } from '@apollo/client'
+import { useQuery } from '@apollo/client'
+import { isRedirectUri } from '@okta/okta-auth-js'
+import { useOktaAuth } from '@okta/okta-react'
 import { useLocation } from 'react-router-dom'
-import { getPortfolioItems } from '../../services/graphQL'
+import { GET_PORTFOLIO_ITEMS } from '../../queries/graphQL'
 import {
   type PortfolioContextStateType,
   type PortfolioContextValueType,
@@ -31,6 +32,7 @@ import { LoadingOverlay } from '../common/loading-overlay/LoadingOverlay'
 const intialPortfolioContextState: PortfolioContextStateType = {
   areHomeImagesLoaded: false,
   isLoading: true,
+  isLoggedIn: null,
   isMobileNavOpen: false,
   isNavigating: false,
   portfolioMap: {},
@@ -45,11 +47,13 @@ interface PortfolioContextProviderProps {
 }
 
 const PortfolioContextProvider: FunctionComponent<PortfolioContextProviderProps> = ({ children }) => {
-  const apolloClient = useApolloClient()
+  const { data: portfolioDataResponse } = useQuery(GET_PORTFOLIO_ITEMS)
+  const { authState, oktaAuth } = useOktaAuth()
   const [ areHomeImagesLoaded, setAreHomeImagesLoaded ] = useState(intialPortfolioContextState.areHomeImagesLoaded)
   const [ isLoading, setIsLoading ] = useState(intialPortfolioContextState.isLoading)
   const [ isMobileNavOpen, setIsMobileNavOpen ] = useState(intialPortfolioContextState.isMobileNavOpen)
   const [ isNavigating, setIsNavigating ] = useState(intialPortfolioContextState.isNavigating)
+  const [ isLoggedIn, setIsLoggedIn ] = useState<boolean | null>(null)
   const [ portfolioMap, setPortfolioMap ] = useState(intialPortfolioContextState.portfolioMap)
   const [ projectIds, setProjectIds ] = useState(intialPortfolioContextState.projectIds)
   const [ projectImagesPreloaded, setProjectImagesPreloaded ] = useState(intialPortfolioContextState.projectImagesPreloaded)
@@ -71,10 +75,29 @@ const PortfolioContextProvider: FunctionComponent<PortfolioContextProviderProps>
     setProjectImagesPreloaded(prevState => ({ ...prevState, [imageUrl]: true }))
   }
 
-  const getData = useCallback(
-    async (): Promise<void> => {
-      const portfolioDataResponse = await getPortfolioItems(apolloClient)()
-      const portfolioItems: PortfolioItem[] = portfolioDataResponse?.data?.portfolioItems ?? []
+  useEffect(
+    () => {
+      if (
+        !authState ||
+        typeof authState.isAuthenticated !== 'boolean' ||
+        isRedirectUri(
+          window.location.href,
+          oktaAuth
+        )
+      ) {
+        return
+      }
+
+      setIsLoggedIn(authState.isAuthenticated)
+    },
+    [ authState, oktaAuth ]
+  )
+
+  useEffect(
+    () => {
+      if (!portfolioDataResponse) return
+
+      const portfolioItems: PortfolioItem[] = portfolioDataResponse?.portfolioItems ?? []
       const projectIds: string[] = []
       const newPortfolioMap: PortfolioMapType = {}
       const currentPathName = location?.pathname
@@ -115,12 +138,7 @@ const PortfolioContextProvider: FunctionComponent<PortfolioContextProviderProps>
       setProjectIds(projectIds)
       setIsLoading(false)
     },
-    [ apolloClient, location ]
-  )
-
-  useEffect(
-    () => { void getData() },
-    [ getData ]
+    [ portfolioDataResponse, location ]
   )
 
   const handleNavigation: HandleNavigationFunctionType = (
@@ -165,6 +183,7 @@ const PortfolioContextProvider: FunctionComponent<PortfolioContextProviderProps>
     handleNavigation,
     handleNavigationComplete,
     isLoading,
+    isLoggedIn,
     isMobileNavOpen,
     isNavigating,
     portfolioMap,

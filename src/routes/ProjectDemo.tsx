@@ -10,7 +10,7 @@ import {
   Navigate
 } from 'react-router-dom'
 import { LoadingOverlay } from '../components/common/loading-overlay/LoadingOverlay'
-import { PortfolioContext } from '../components/context/PortfolioContextProvider'
+import { PortfolioContext } from '../components/wrappers/PortfolioContextProvider'
 
 const KnightMovesDemo = React.lazy(async () => await import('../components/page-content/knight-moves-demo/KnightMovesDemo'))
 

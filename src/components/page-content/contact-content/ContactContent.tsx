@@ -8,13 +8,13 @@ import { ContactContentStyles } from './ContactContentStyles'
 import { LinkCustom } from '../../common/link-custom/LinkCustom'
 import { TagH } from '../../common/tag-h/TagH'
 import { TagP } from '../../common/tag-p/TagP'
-import { PortfolioContext } from '../../context/PortfolioContextProvider'
 import { Container } from '../../layout/container/Container'
 import { FlexWrapper } from '../../layout/flex-wrapper/FlexWrapper'
 import { PageRow } from '../../layout/page-row/PageRow'
 import { Pure } from '../../layout/pure/Pure'
 import { PureUnit } from '../../layout/pure-unit/PureUnit'
 import { Spacer } from '../../layout/spacer/Spacer'
+import { PortfolioContext } from '../../wrappers/PortfolioContextProvider'
 
 const ContactContentStyled = styled.div`${ContactContentStyles}`
 
