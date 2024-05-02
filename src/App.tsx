@@ -28,8 +28,8 @@ const router = createBrowserRouter([
         <PortfolioContextProvider>
           <KeyCommandProvider>
             <AppStyled>
-              <Header />
               <div className='scroll-spacer' />
+              <Header />
               <Outlet />
             </AppStyled>
           </KeyCommandProvider>
