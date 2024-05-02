@@ -7,6 +7,11 @@ import {
 } from './utils/constants/breakpoints'
 
 export const appStyles = css`
+  .scroll-spacer {
+    float: left;
+    min-height: 100vh;
+  }
+
   .pure-g {
     letter-spacing: -0.31em; /* Webkit: collapse white-space between units */
     *letter-spacing: normal; /* reset IE < 8 */
