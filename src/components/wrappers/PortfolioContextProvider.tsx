@@ -47,7 +47,7 @@ interface PortfolioContextProviderProps {
 }
 
 const PortfolioContextProvider: FunctionComponent<PortfolioContextProviderProps> = ({ children }) => {
-  const { data: portfolioDataResponse } = useQuery(GET_PORTFOLIO_ITEMS)
+  const { data: portfolioDataResponse } = useQuery<{ portfolioItems: PortfolioItem[] }>(GET_PORTFOLIO_ITEMS)
   const { authState, oktaAuth } = useOktaAuth()
   const [ areHomeImagesLoaded, setAreHomeImagesLoaded ] = useState(intialPortfolioContextState.areHomeImagesLoaded)
   const [ isLoading, setIsLoading ] = useState(intialPortfolioContextState.isLoading)

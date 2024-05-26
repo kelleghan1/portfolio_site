@@ -35,6 +35,38 @@ export const GET_PORTFOLIO_ITEMS = gql`
   }
 `
 
+export const GET_LINKS = gql`
+  query GetLinks {
+    links {
+      id
+      url
+      label
+      isInternal
+      type {
+        name
+      }
+    }
+  }
+`
+
+export const GET_PROJECT_IMAGES = gql`
+  query GetProjectImages {
+    projectImages {
+      id
+      imageUrl
+    }
+  }
+`
+
+export const GET_PRODUCTS = gql`
+  query GetProducts {
+    products {
+      id
+      name
+    }
+  }
+`
+
 export const CREATE_PORTFOLIO_ITEMS = gql`
   mutation CreatePortfolioItem(
     $categories: [Int!]!,

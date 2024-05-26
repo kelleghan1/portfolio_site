@@ -7,6 +7,8 @@ interface FlexWrapperPropsType {
   hasShadow?: boolean
   backgroundColor?: string
   children: ReactNode
+  gap?: number
+  justifyContent?: string
 }
 
 const FlexWrapperStyled = styled.div`${FlexWrapperStyles}`
@@ -15,7 +17,9 @@ export const FlexWrapper: FunctionComponent<FlexWrapperPropsType> = ({
   backgroundColor,
   children,
   flexColumn,
-  hasShadow
+  hasShadow,
+  justifyContent,
+  gap
 }) => {
   let className = flexColumn ? 'flex-column flex-grow' : ''
 
@@ -25,6 +29,8 @@ export const FlexWrapper: FunctionComponent<FlexWrapperPropsType> = ({
     <FlexWrapperStyled
       backgroundColor={backgroundColor}
       className={className}
+      gap={gap}
+      justifyContent={justifyContent}
     >
       { children }
     </FlexWrapperStyled>

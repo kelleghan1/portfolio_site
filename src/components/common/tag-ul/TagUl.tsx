@@ -5,7 +5,7 @@ import { TagUlStyles } from './TagUlStyles'
 const UlTagStyled = styled.ul`${TagUlStyles}`
 
 interface TagUlPropsType {
-  children: ReactElement
+  children: ReactElement | ReactElement[]
 }
 
 export const TagUl: FunctionComponent<TagUlPropsType> = ({ children }) => <UlTagStyled>{ children }</UlTagStyled>
