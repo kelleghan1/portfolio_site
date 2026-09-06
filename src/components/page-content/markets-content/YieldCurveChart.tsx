@@ -36,10 +36,10 @@ const YieldCurveChartStyled = styled.div`${YieldCurveChartStyles}`
 const TRAIL_DAYS = 30
 const TRAIL_WEEKS = 6
 
-/* The oldest day is drawn warm and the most recent cool, so the curve's drift over the
-   window reads as a direction rather than a tangle. */
-const TRAIL_OLDEST_COLOR = SERIES2
-const TRAIL_NEWEST_COLOR = SERIES1
+/* The oldest reading is drawn cool and the most recent warm, so the curve's drift over
+   the window reads as a direction rather than a tangle. */
+const TRAIL_OLDEST_COLOR = SERIES1
+const TRAIL_NEWEST_COLOR = SERIES2
 
 const SMALL_SCREEN_TICKS = [
   1,
