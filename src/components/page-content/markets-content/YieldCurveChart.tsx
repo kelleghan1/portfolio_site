@@ -37,8 +37,13 @@ const TRAIL_DAYS = 30
 const TRAIL_WEEKS = 6
 
 /* The oldest reading is drawn cool and the most recent warm, so the curve's drift over
-   the window reads as a direction rather than a tangle. */
-const TRAIL_OLDEST_COLOR = SERIES1
+   the window reads as a direction rather than a tangle. The cool end is lightened so
+   the older lines sit back behind the newest. */
+const TRAIL_OLDEST_COLOR = mixHexColors(
+  SERIES1,
+  '#ffffff',
+  0.4
+)
 const TRAIL_NEWEST_COLOR = SERIES2
 
 const SMALL_SCREEN_TICKS = [

@@ -37,6 +37,10 @@ import { useIsSmallScreen } from '../../hooks/useIsSmallScreen'
 
 const MarketChartStyled = styled.div`${MarketChartStyles}`
 
+/* Older readings are held back so the newest line, drawn last and so on top of the
+   rest, stays the one the eye lands on. */
+const TRAIL_FADED_OPACITY = 0.65
+
 export interface BandConfig {
   color: string
   dataKey: string
@@ -551,19 +555,27 @@ export const MarketChart: FunctionComponent<MarketChartProps> = ({
                 stroke='none'
               />
             ) }
-            { shownTrail?.steps.map(({ color, dataKey }) => (
-              <Line
-                activeDot={false}
-                connectNulls
-                dataKey={dataKey}
-                dot={false}
-                isAnimationActive={false}
-                key={dataKey}
-                stroke={color}
-                strokeWidth={1.5}
-                type='monotone'
-              />
-            )) }
+            { shownTrail?.steps.map((
+              { color, dataKey },
+              index
+            ) => {
+              const isNewest = index === (shownTrail.steps.length - 1)
+
+              return (
+                <Line
+                  activeDot={false}
+                  connectNulls
+                  dataKey={dataKey}
+                  dot={false}
+                  isAnimationActive={false}
+                  key={dataKey}
+                  stroke={color}
+                  strokeOpacity={isNewest ? 1 : TRAIL_FADED_OPACITY}
+                  strokeWidth={isNewest ? 2.25 : 1.5}
+                  type='monotone'
+                />
+              )
+            }) }
             { drawnSeries.map(({
               color,
               fredId,
