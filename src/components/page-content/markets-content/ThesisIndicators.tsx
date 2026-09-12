@@ -85,9 +85,9 @@ const daysAgoIso = (days: number): string => {
 /* Threshold bands. Each level is the user's own trigger, kept in one place so they are
    easy to retune as the thesis changes. */
 const TEN_YEAR_CONFIRM = 5
-const TEN_YEAR_REJECT = 4.6
+const TEN_YEAR_REJECT = 4.75
 const THIRTY_YEAR_CONFIRM = 5.5
-const THIRTY_YEAR_REJECT = 5.1
+const THIRTY_YEAR_REJECT = 5.15
 /* Credit is a change, not a level: high yield OAS versus one month ago, in percentage
    points. Widening is the signal; a calm or tightening spread argues against. */
 const CREDIT_CONFIRM = 0.5
@@ -106,8 +106,8 @@ const buildIndicators = (seriesMap: MarketSeriesMap): Indicator[] => {
       key: 'DGS10',
       label: '10Y Treasury',
       value: `${tenYear.toFixed(2)}%`,
-      detail: `Confirms above ${TEN_YEAR_CONFIRM.toFixed(2)}%, rejects below ${TEN_YEAR_REJECT.toFixed(2)}%`,
-      status: tenYear > TEN_YEAR_CONFIRM ? 'bad' : tenYear < TEN_YEAR_REJECT ? 'good' : 'warn'
+      detail: `Confirms at ${TEN_YEAR_CONFIRM.toFixed(2)}% or above, rejects below ${TEN_YEAR_REJECT.toFixed(2)}%`,
+      status: tenYear >= TEN_YEAR_CONFIRM ? 'bad' : tenYear < TEN_YEAR_REJECT ? 'good' : 'warn'
     })
   }
 
@@ -118,8 +118,8 @@ const buildIndicators = (seriesMap: MarketSeriesMap): Indicator[] => {
       key: 'DGS30',
       label: '30Y Treasury',
       value: `${thirtyYear.toFixed(2)}%`,
-      detail: `Confirms above ${THIRTY_YEAR_CONFIRM.toFixed(2)}%, rejects below ${THIRTY_YEAR_REJECT.toFixed(2)}%`,
-      status: thirtyYear > THIRTY_YEAR_CONFIRM ? 'bad' : thirtyYear < THIRTY_YEAR_REJECT ? 'good' : 'warn'
+      detail: `Confirms at ${THIRTY_YEAR_CONFIRM.toFixed(2)}% or above, rejects below ${THIRTY_YEAR_REJECT.toFixed(2)}%`,
+      status: thirtyYear >= THIRTY_YEAR_CONFIRM ? 'bad' : thirtyYear < THIRTY_YEAR_REJECT ? 'good' : 'warn'
     })
   }
 
